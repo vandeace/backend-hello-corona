@@ -67,14 +67,14 @@ exports.register = async (req, res) => {
           const data = {
             token,
           };
-          res.status(200).send({ status: 'success', data });
+          return res.status(200).send({ status: 'success', data });
         });
       });
     } else {
-      res.status(400).send({ message: 'Email already registered' });
+      return res.status(400).send({ message: 'Email already registered' });
     }
   } catch (error) {
-    res.send(500).send({ message: 'server internal error' });
+    return res.send(500).send({ message: 'server internal error' });
     console.log(error);
   }
 };
