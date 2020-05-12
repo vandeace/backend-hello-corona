@@ -60,6 +60,9 @@ exports.index = async (req, res) => {
       const consult = await Consultation.findAll({
         ...consultParams,
         where: { userId: id },
+        order: [
+          ['id', 'ASC'],
+        ],
       });
       res.status(200).send({ data: consult });
     }
